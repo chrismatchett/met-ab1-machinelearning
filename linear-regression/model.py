@@ -2,8 +2,9 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+import joblib
 
-# Load dataset (make sure titanic.csv is in the same folder)
+# Load dataset
 data = pd.read_csv("titanic.csv")
 
 # Select features
@@ -38,3 +39,6 @@ print("\nConfusion Matrix:")
 print(confusion_matrix(y_test, predictions))
 print("\nClassification Report:")
 print(classification_report(y_test, predictions))
+
+# 2. Save the model to a file
+joblib.dump(model, 'titanic_model.pkl')
